@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet logicalFilePath="2023-17-12-2-insert-orders"
+               id="2023-17-12-2-insert-orders" author="egoravdeev">
+        <insert tableName="orders">
+            <column name="order_date" value="2023-08-15"/>
+            <column name="status" value="1"/>
+            <column name="vehicle" value="Самолет"/>
+            <column name="delivery_date" value="2023-08-17"/>
+        </insert>
+
+        <insert tableName="orders">
+            <column name="order_date" value="2023-08-11"/>
+            <column name="status" value="1"/>
+            <column name="vehicle" value="Поезд"/>
+            <column name="delivery_date" value="2023-08-12"/>
+        </insert>
+
+        <insert tableName="orders">
+            <column name="order_date" value="2023-07-10"/>
+            <column name="status" value="1"/>
+            <column name="vehicle" value="Грузовик"/>
+            <column name="delivery_date" value="2023-08-12"/>
+        </insert>
+
+        <insert tableName="orders">
+            <column name="order_date" value="2023-08-11"/>
+            <column name="status" value="1"/>
+            <column name="vehicle" value="Поезд"/>
+            <column name="delivery_date" value="2023-08-12"/>
+        </insert>
+
+        <insert tableName="orders">
+            <column name="order_date" value="2023-08-11"/>
+            <column name="status" value="1"/>
+            <column name="vehicle" value="Поезд"/>
+            <column name="delivery_date" value="2023-08-12"/>
+        </insert>
+
+        <insert tableName="orders">
+            <column name="order_date" value="2023-08-11"/>
+            <column name="status" value="1"/>
+            <column name="vehicle" value="Поезд"/>
+            <column name="delivery_date" value="2023-08-12"/>
+        </insert>
+
+
+    </changeSet>
+
+</databaseChangeLog>

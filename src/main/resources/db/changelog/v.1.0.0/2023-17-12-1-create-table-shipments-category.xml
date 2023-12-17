@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+    <changeSet logicalFilePath="2023-17-12-1-create-table-shipments-category" id="create-shipments-category-table" author="egoravdeev">
+        <createTable tableName="shipments_category">
+            <column name="shipment_id" type="int">
+                <constraints nullable="false" primaryKey="true" references="shipments(shipment_id)"/>
+            </column>
+            <column name="category_id" type="int">
+                <constraints nullable="false" primaryKey="true" foreignKeyName="shipments_category_egoravdeev_product_category_category_id" references="product_category(category_id)"/>>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

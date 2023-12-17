@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+    <include file="2023-17-12-1-create-table-delivered-shipments.xml" relativeToChangelogFile="true"/>
+    <include file="2023-17-12-1-create-table-delivery-timelines.xml" relativeToChangelogFile="true"/>
+    <include file="2023-17-12-1-create-table-orders.xml" relativeToChangelogFile="true"/>
+    <include file="2023-17-12-1-create-table-product-category.xml" relativeToChangelogFile="true"/>
+    <include file="2023-17-12-1-create-table-shipments.xml" relativeToChangelogFile="true"/>
+    <include file="2023-17-12-1-create-table-shipments-category.xml" relativeToChangelogFile="true"/>
+    <include file="2023-17-12-2-insert-orders.xml" relativeToChangelogFile="true"/>
+    <include file="2023-17-12-2-insert-product-category.xml" relativeToChangelogFile="true"/>
+    <include file="2023-17-12-2-insert-shipments.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

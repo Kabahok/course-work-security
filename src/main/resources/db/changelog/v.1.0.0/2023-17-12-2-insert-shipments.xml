@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet logicalFilePath="2023-17-12-2-insert-shipments"
+               id="2023-17-12-2-insert-shipments" author="egoravdeev">
+
+        <insert tableName="shipments">
+            <column name="shipment_type" value="Cборный"/>
+            <column name="weight" value="20.43"/>
+            <column name="volume" value="40.13"/>
+            <column name="order_id" value="1"/>
+            <column name="delivery_status" value="3"/>
+            <column name="order_id" type="INT"/>
+        </insert>
+
+        <insert tableName="shipments">
+            <column name="shipment_type" value="Cборный"/>
+            <column name="weight" value="20.43"/>
+            <column name="volume" value="40.13"/>
+            <column name="order_id" value="1"/>
+            <column name="delivery_status" value="2"/>
+            <column name="order_id" type="INT"/>
+        </insert>
+
+        <insert tableName="shipments">
+            <column name="shipment_type" value="Cборный"/>
+            <column name="weight" value="20.43"/>
+            <column name="volume" value="40.13"/>
+            <column name="order_id" value="1"/>
+            <column name="delivery_status" value="6"/>
+            <column name="order_id" type="INT"/>
+        </insert>
+
+        <insert tableName="shipments">
+            <column name="shipment_type" value="Cборный"/>
+            <column name="weight" value="20.43"/>
+            <column name="volume" value="40.13"/>
+            <column name="order_id" value="1"/>
+            <column name="delivery_status" value="2"/>
+            <column name="order_id" type="INT"/>
+        </insert>
+
+        <insert tableName="shipments">
+            <column name="shipment_type" value="Cборный"/>
+            <column name="weight" value="20.43"/>
+            <column name="volume" value="40.13"/>
+            <column name="order_id" value="1"/>
+            <column name="delivery_status" value="3"/>
+            <column name="order_id" type="INT"/>
+        </insert>
+
+        <insert tableName="shipments">
+            <column name="shipment_type" value="Cборный"/>
+            <column name="weight" value="20.43"/>
+            <column name="volume" value="40.13"/>
+            <column name="order_id" value="1"/>
+            <column name="delivery_status" value="5"/>
+            <column name="order_id" type="INT"/>
+        </insert>
+
+        <insert tableName="shipments">
+            <column name="shipment_type" value="Cборный"/>
+            <column name="weight" value="20.43"/>
+            <column name="volume" value="40.13"/>
+            <column name="order_id" value="1"/>
+            <column name="delivery_status" value="4"/>
+            <column name="order_id" type="INT"/>
+        </insert>
+
+        <insert tableName="shipments">
+            <column name="shipment_type" value="Cборный"/>
+            <column name="weight" value="20.43"/>
+            <column name="volume" value="40.13"/>
+            <column name="order_id" value="1"/>
+            <column name="delivery_status" value="4"/>
+            <column name="order_id" type="INT"/>
+        </insert>
+
+        <insert tableName="shipments">
+            <column name="shipment_type" value="Cборный"/>
+            <column name="weight" value="20.43"/>
+            <column name="volume" value="40.13"/>
+            <column name="order_id" value="3"/>
+            <column name="delivery_status" value="1"/>
+            <column name="order_id" type="INT"/>
+        </insert>
+
+        <insert tableName="shipments">
+            <column name="shipment_type" value="Cборный"/>
+            <column name="weight" value="20.43"/>
+            <column name="volume" value="40.13"/>
+            <column name="order_id" value="2"/>
+            <column name="delivery_status" value="1"/>
+            <column name="order_id" type="INT"/>
+        </insert>
+
+        <insert tableName="shipments">
+            <column name="shipment_type" value="Cборный"/>
+            <column name="weight" value="20.43"/>
+            <column name="volume" value="40.13"/>
+            <column name="order_id" value="1"/>
+            <column name="delivery_status" value="1"/>
+            <column name="order_id" type="INT"/>
+        </insert>
+
+        <insert tableName="shipments">
+            <column name="shipment_type" value="Cборный"/>
+            <column name="weight" value="20.43"/>
+            <column name="volume" value="40.13"/>
+            <column name="order_id" value="1"/>
+            <column name="delivery_status" value="1"/>
+            <column name="order_id" type="INT"/>
+        </insert>
+
+
+    </changeSet>
+
+</databaseChangeLog>

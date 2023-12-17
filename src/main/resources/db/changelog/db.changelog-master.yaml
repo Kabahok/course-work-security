@@ -1,0 +1,226 @@
+
+
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-master.yaml
+
+  - changeSet:
+      id: 1702841658464-1
+      author: egoravdeev (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: orders_pkey
+                  name: order_id
+                  startWith: 2
+                  type: INTEGER
+              - column:
+                  name: order_date
+                  type: date
+              - column:
+                  name: status
+                  type: INTEGER
+              - column:
+                  name: vehicle
+                  type: VARCHAR(30)
+              - column:
+                  name: delivery_date
+                  type: date
+            tableName: orders
+  - changeSet:
+      id: 1702841658464-2
+      author: egoravdeev (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: shipments_pkey
+                  name: shipment_id
+                  type: INTEGER
+              - column:
+                  name: shipment_type
+                  type: VARCHAR(50)
+              - column:
+                  name: weight
+                  type: FLOAT8
+              - column:
+                  name: volume
+                  type: FLOAT8
+              - column:
+                  name: order_id
+                  type: INTEGER
+              - column:
+                  name: delivery_status
+                  type: INTEGER
+            tableName: shipments
+  - changeSet:
+      id: 1702841658464-3
+      author: egoravdeev (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: product_category_pkey
+                  name: category_id
+                  type: INTEGER
+              - column:
+                  name: categoty_name
+                  type: VARCHAR(30)
+            tableName: product_category
+  - changeSet:
+      id: 1702841658464-4
+      author: egoravdeev (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: delivery_timelines_pkey
+                  name: timeline_id
+                  type: INTEGER
+              - column:
+                  name: order_id
+                  type: INTEGER
+              - column:
+                  name: planned_delivery_date
+                  type: date
+              - column:
+                  name: actual_delivery_date
+                  type: date
+            tableName: delivery_timelines
+  - changeSet:
+      id: 1702841658464-5
+      author: egoravdeev (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: delivered_shipments_pkey
+                  name: delivery_id
+                  type: INTEGER
+              - column:
+                  name: shipment_id
+                  type: INTEGER
+              - column:
+                  name: delivery_date
+                  type: date
+              - column:
+                  name: delivery_status
+                  type: INTEGER
+            tableName: delivered_shipments
+  - changeSet:
+      id: 1702841658464-6
+      author: egoravdeev (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: shipments_category_pkey
+                  name: shipment_id
+                  type: INTEGER
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: shipments_category_pkey
+                  name: category_id
+                  type: INTEGER
+            tableName: shipments_category
+  - changeSet:
+      id: 1702841658464-7
+      author: egoravdeev (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: shipment_id
+            baseTableName: delivered_shipments
+            constraintName: delivered_shipments_shipment_id_fkey
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: shipment_id
+            referencedTableName: shipments
+            validate: true
+  - changeSet:
+      id: 1702841658464-8
+      author: egoravdeev (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: order_id
+            baseTableName: delivery_timelines
+            constraintName: delivery_timelines_order_id_fkey
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: order_id
+            referencedTableName: orders
+            validate: true
+  - changeSet:
+      id: 1702841658464-9
+      author: egoravdeev (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: category_id
+            baseTableName: shipments_category
+            constraintName: shipments_category_category_id_fkey
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: category_id
+            referencedTableName: product_category
+            validate: true
+  - changeSet:
+      id: 1702841658464-10
+      author: egoravdeev (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: shipment_id
+            baseTableName: shipments_category
+            constraintName: shipments_category_shipment_id_fkey
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: shipment_id
+            referencedTableName: shipments
+            validate: true
+  - changeSet:
+      id: 1702841658464-11
+      author: egoravdeev (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: order_id
+            baseTableName: shipments
+            constraintName: shipments_order_id_fkey
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: order_id
+            referencedTableName: orders
+            validate: true
+

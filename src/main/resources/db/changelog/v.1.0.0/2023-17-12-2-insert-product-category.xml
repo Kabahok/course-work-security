@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet logicalFilePath="2023-17-12-2-insert-shipments"
+               id="2023-17-12-2-insert-shipments" author="egoravdeev">
+
+        <insert tableName="product_category">
+            <column name="category_name" value="Электронника"/>
+        </insert>
+        <insert tableName="product_category">
+            <column name="category_name" value="Бытовая техника"/>
+        </insert>
+        <insert tableName="product_category">
+            <column name="category_name" value="Химикаты"/>
+        </insert>
+        <insert tableName="product_category">
+            <column name="category_name" value="Товары для дома"/>
+        </insert>
+        <insert tableName="product_category">
+            <column name="category_name" value="Продукты"/>
+        </insert>
+        <insert tableName="product_category">
+            <column name="category_name" value="Сад и дом"/>
+        </insert>
+        <insert tableName="product_category">
+            <column name="category_name" value="Одежда/обувь"/>
+        </insert>
+
+
+    </changeSet>
+
+</databaseChangeLog>

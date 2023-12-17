@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+    <changeSet logicalFilePath="2023-17-12-1-create-table-delivery-timelines" id="create-delivery-timelines-table" author="egoravdeev">
+        <createTable tableName="delivery_timelines">
+            <column name="timeline_id" type="serial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="order_id" type="int">
+                <constraints nullable="false" foreignKeyName="orders_egoravdeev_delivery_timelines_order_id" references="orders(order_id)"/>
+            </column>
+            <column name="planned_delivery_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actual_delivery_date" type="date">
+
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
