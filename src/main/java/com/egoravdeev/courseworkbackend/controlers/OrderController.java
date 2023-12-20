@@ -20,8 +20,13 @@ public class OrderController {
         return orderService.getOrders();
     }
 
+    @GetMapping("/ordersVehicle")
+    public List<Order> getOrdersByVehicle(@RequestParam String vehicleType) {
+        return orderService.getByVehicle(vehicleType);
+    }
+
     @PostMapping("/orders")
     public void addOrder(@RequestParam String orderDate, @RequestParam int status, @RequestParam String deliveryDate, @RequestParam String vehicle) {
-        orderService.addOrder(orderDate, status, deliveryDate, vehicle);
+        orderService.addOrder(orderDate, status, deliveryDate, vehicle.split(",")[0]);
     }
 }

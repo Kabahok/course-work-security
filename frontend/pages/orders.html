@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+      <div class="menu_cont">
+        <a href="../index.html">Главная</a>
+        <a href="shipments.html">Список грузов</a>
+        <a href="delivery.html">Информация по доставкам</a>
+        <a href="shipmentsDelivery.html">Список доставленных грузов</a>
+      </div>
+  
+      <h1 class="title">Информация по заказам</h1>
+  
+      <form class="orderForm">
+        <label for="orderDate">Дата создания заказа:</label>
+        <input type="date" id="orderDate" name="orderDate" class="orderDate">
+      
+        <label for="deliveryDate">Дата доставки заказа:</label>
+        <input type="date" id="deliveryDate" name="deliveryDate" class="deliveryDate">
+      
+        <label for="vehicle">Транспортное средство:</label>
+        <select id="vehicle" name="vehicle" class="transport">
+  
+          <option value="Грузовик">Грузовик</option>
+          <option value="Самолет">Самолет</option>
+          <option value="Корабль">Корабль</option>
+          <option value="Поезд">Поезд</option>
+        </select>
+      
+        <button type="submit">Отправить</button>
+      </form>
+
+      
+  
+      <div class="container">
+        <h1 class="orderTitle">Список заказов</h1>
+        <form>
+          <div class="vehicleItem">
+            <h3>Фильтр по транспортному средсту:</h3>
+            <label for="vehicleFilter">Выберите ТС:</label>
+            <select id="vehicleFilter" name="vehicleFilter" class="vehicleFilter">
+              <option value="Грузовик">Грузовик</option>
+                <option value="Самолет">Самолет</option>
+                <option value="Корабль">Корабль</option>
+                <option value="Поезд">Поезд</option>
+            </select>
+  
+            <div>
+              <button class="btn vehicleFilterBtn">Применить фильтр</button>
+            </div>
+          </div>
+        </form>
+        <button class="orderBtn btn" >Обновить информацию</button>
+        <table id="ordersTable">
+          <thead>
+            <tr class="tr">
+              <th class="thead">ID Заказа</th>
+              <th class="thead">Дата создания заказа</th>
+              <th class="thead">Статут заказа</th>
+              <th class="thead">Дата доставки</th>
+              <th class="thead">Транспортное средство для доставки</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTableBody">
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <script src="../js/script.js"></script>
+    
+  </body>
+</html>
+  

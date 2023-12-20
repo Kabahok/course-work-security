@@ -21,4 +21,8 @@ public class OrderService {
     public void addOrder(String orderDate, int status, String deliveryDate, String vehicle) {
         orderDAO.addOrder(new Order(0, orderDate, status, deliveryDate, vehicle));
     }
+
+    public List<Order> getByVehicle(String vehicleType) {
+        return orderDAO.findByVehicle(vehicleType);
+    }
 }

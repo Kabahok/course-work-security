@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,31 +45,39 @@ public class DeliveredShipmentInformationDAO implements DeliveryShipmentInformat
     @Override
     public void addDeliveredShipemnts(List<DeliveredShipment> shipments) {
         for (DeliveredShipment shipment : shipments) {
-            String sql = "insert into public.delivered_shipments (delivery_id, shipment_id, delivery_date, delivery_status) values(:deliveryId, :shipmentId, :deliveryDate, :deliveryStatus)";
+            String sql = "insert into public.delivered_shipments as ds (shipment_id, delivery_date, delivery_status) " +
+                    "select :shipmentId, :deliveryDate, :deliveryStatus " +
+                    "where not exists (" +
+                    "select 1 from public.delivered_shipments " +
+                    "where shipment_id = :shipmentId and " +
+                    "delivery_date = :deliveryDate and" +
+                    "    delivery_status = :deliveryStatus" +
+                    ")";
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
             Map<String, Object> params = new HashMap<>();
-            try {
                 params.put("shipmentId", shipment.getShipmentId());
-                params.put("deliveryDate", dateFormat.parse(shipment.getDeliveryDate()));
+                params.put("deliveryDate", LocalDate.parse(shipment.getDeliveryDate(), formatter));
                 params.put("deliveryStatus", shipment.getDeliveryStatus());
-                params.put("deliveryId", shipment.getDeliveryId());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
+
+
             namedParameterJdbcTemplate.update(sql, params);
         }
     }
 
     @Override
     public List<DeliveredShipment> findDeliveredShipments() {
-        String query = "select * from public.shipments s join public.orders o on s.order_id = o.order_id where o.delivery_date < '2024.12.31'";
+        String query = "select * from public.shipments s join public.orders o on s.order_id = o.order_id where o.delivery_date < CURRENT_DATE";
+        Map<String, Object> params = new HashMap<>();
 
-        return namedParameterJdbcTemplate.query(query, (rs, rowNum) -> {
+        return namedParameterJdbcTemplate.query(query, params, (rs, rowNum) -> {
            int shipmentId = rs.getInt("shipment_id");
            String deliveryDate = dateFormat.format(rs.getDate("delivery_date"));
+           System.out.println(deliveryDate);
            int deliveryStatus = rs.getInt("delivery_status");
 
 
-           return new DeliveredShipment(0, shipmentId, deliveryDate, deliveryStatus);
+           return new DeliveredShipment(0, shipmentId, deliveryDate, 2);
         });
     }
 }

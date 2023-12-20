@@ -24,17 +24,22 @@ public class ShipmentService {
     }
 
     public List<Shipment> getFiltersShipments(String shipmentType, int categoryId) {
-        if (shipmentType != null && categoryId <= 0) {
-            System.out.println(shipmentType);
-            return shipmentDAO.findByType(shipmentType);
-        } else if (shipmentType == null && categoryId >= 0) {
-            System.out.println(1);
-            return shipmentDAO.findByCategory(categoryId);
+        if (shipmentType.equals("")) {
+            if (categoryId > 0) {
+                System.out.println(1);
+                return shipmentDAO.findByCategory(categoryId);
+            } else {
+                System.out.println(2);
+                return shipmentDAO.getShipments();
+            }
         } else {
-            System.out.println(shipmentType);
-            System.out.println(categoryId);
-
-            return shipmentDAO.findByAllFilters(shipmentType, categoryId);
+            if (categoryId <= 0) {
+                System.out.println(3);
+                return shipmentDAO.findByType(shipmentType);
+            } else {
+                System.out.println(4);
+                return shipmentDAO.findByAllFilters(shipmentType, categoryId);
+            }
         }
     }
 }

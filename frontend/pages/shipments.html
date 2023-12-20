@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+      <div class="menu_cont">
+        <a href="../index.html">Главная</a>
+        <a href="orders.html">Список заказов</a>
+        <a href="delivery.html">Информация по доставкам</a>
+        <a href="shipmentsDelivery.html">Список доставленных грузов</a>
+      </div>
+  
+  
+      <h1 class="title">Информация по грузам</h1>
+  
+      <form class="cargoForm">
+        <label for="cargoType">Тип груза:</label>
+        <select id="cargoType" name="cargoType" class="cargoType">
+          <option value="Наливной">Наливной</option>
+          <option value="Опасный">Опасный</option>
+          <option value="Скоропортящийся">Скоропортящийся</option>
+          <option value="Сборный">Сборный</option>
+          <option value="Тяжеловесный">Тяжеловесный</option>
+          <option value="Контейнер">Контейнер</option>
+          <option value="Коробка">Коробка</option>
+          <option value="Другой">Другой</option>
+        </select>
+
+        <label for="categoryFilter">Категория груза</label>
+        <select id="categoryFilter" name="categoryFilter" class="categoryFilter">
+          <option value="Все">Все товары</option>
+          <option value="Электронника">Электронника</option>
+          <option value="Бытовая техника">Бытовая техника</option>
+          <option value="Химикаты">Химикаты</option>
+          <option value="Товары для дома">Товары для дома</option>
+          <option value="Продукты">Продукты</option>
+          <option value="Сад и дом">Сад и дом</option>
+          <option value="Одежда">Одежда</option>
+          <option value="Обувь">Обувь</option>
+        </select>
+      
+        <label for="cargoWeight">Вес груза (кг):</label>
+        <input type="number" id="cargoWeight" name="cargoWeight" class="cargoWeight">
+      
+        <label for="cargoVolume">Объем груза (м³):</label>
+        <input type="number" id="cargoVolume" name="cargoVolume" class="cargoVolume">
+      
+        <label for="orderId">ID заказа:</label>
+        <input type="text" id="orderId" name="orderId" class="orderId">
+      
+      
+        <button type="submit">Отправить</button>
+      </form>
+      
+  
+      <h1 class="shipmentTitle">Список грузов</h1>
+      <form class="filters">
+        <div>
+          <div class="filterContainer">
+            <div class="filterItem">
+              <h3>Фильтр по категориям:</h3>
+              <label for="categoryFilter">Выберите категорию:</label>
+              <select id="categorysFilter" name="categoryFilter" class="categoryFilter">
+                <option value="Все категории">Все категории</option>
+                <option value="Электронника">Электроника</option>
+                <option value="Бытовая техника">Бытовая техника</option>
+                <option value="Химикаты">Химикаты</option>
+                <option value="Товары для дома">Товары для дома</option>
+                <option value="Продукты">Продукты</option>
+                <option value="Сад и дом">Сад и дом</option>
+                <option value="Одежда">Одежда</option>
+                <option value="Обувь">Обувь</option>
+              </select>
+            </div>
+          
+            <div class="filterItem">
+              <h3>Фильтр по типу товара:</h3>
+              <label for="typeFilter">Выберите тип товара:</label>
+              <select id="typeFilter" name="typeFilter" class="typeFilter">
+                <option value="Все типы">Все типы</option>
+                <option value="Наливной">Наливной</option>
+                <option value="Опасный">Опасный</option>
+                <option value="Скоропортящийся">Скоропортящийся</option>
+                <option value="Сборный">Сборный</option>
+                <option value="Тяжеловесный">Тяжеловесный</option>
+                <option value="Контейнер">Контейнер</option>
+                <option value="Коробка">Коробка</option>
+                <option value="Другой">Другой</option>
+              </select>
+            </div>
+          
+          
+          </div>
+          <button class="btn filterBtn">Применить фильтр</button>
+        </div>
+      </form>
+      <button class="btn shipmentBtn" >Обновить информацию</button>
+      <table id="shipmentsTable">
+        <thead>
+          <tr>
+            <th class="thead">ID Груза</th>
+            <th class="thead">Тип груза</th>
+            <th class="thead">Вес (кг)</th>
+            <th class="thead">Объем (м^3)</th>
+            <th class="thead">ID заказа</th>
+            <th class="thead">Статус доставки</th>
+          </tr>
+        </thead>
+        <tbody id="shipmentsTableBody">
+  
+        </tbody>
+      </table>
+  
+    </div>
+  
+    <script src="../js/script.js"></script>
+  </body>
+</html>

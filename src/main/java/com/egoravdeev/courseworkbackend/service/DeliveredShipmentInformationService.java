@@ -15,6 +15,6 @@ public class DeliveredShipmentInformationService {
     }
 
     public List<DeliveredShipment> getDeliveredShipmentInformation() {
-        return deliveredShipmentInformationDAO.findDeliveredShipments();
+        return deliveredShipmentInformationDAO.findAll();
     }
 }

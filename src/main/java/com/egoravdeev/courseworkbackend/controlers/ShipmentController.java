@@ -21,14 +21,14 @@ public class ShipmentController {
     }
 
     @GetMapping("/shipmentsFilter")
-    public List<Shipment> getFiltersShipments(@RequestParam(required = false) String shipmentType, @RequestParam(required = false) int categoryId) {
+    public List<Shipment> getFiltersSehipments(@RequestParam(required = false) String shipmentType, @RequestParam(required = false) int categoryId) {
         return shipmentService.getFiltersShipments(shipmentType, categoryId);
     }
 
     @PostMapping("/shipments")
     public void addShipment(@RequestParam String shipmentType, @RequestParam float weight, @RequestParam float volume,
-                            @RequestParam int orderId,  @RequestParam int deliveryStatus) {
-        shipmentService.addShipment(new Shipment(0, shipmentType, weight, volume, orderId, deliveryStatus));
+                            @RequestParam int orderId,  @RequestParam int deliveryStatus, @RequestParam int shipmentCategory) {
+        shipmentService.addShipment(new Shipment(0, shipmentType.split(",")[0], weight, volume, orderId, deliveryStatus, shipmentCategory));
     }
 
 

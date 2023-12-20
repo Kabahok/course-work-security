@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="menu_cont">
+            <a href="../index.html">Главная</a>
+            <a href="orders.html">Список заказов</a>
+            <a href="shipments.html">Список грузов</a>
+            <a href="shipmentsDelivery.html">Список доставленных грузов</a>
+        </div>
+        <h1>Информация по доставке</h1>
+    
+        <button class="btn deliveryBtn" >Обновить информацию</button>
+        <table id="deliveredShipmentsTable">
+            <thead>
+              <tr>
+                <th class="thead">timeline_id</th>
+                <th class="thead">order_id</th>
+                <th class="thead">planned_delivery_date</th>
+                <th class="thead">actual_delivery_date</th>
+              </tr>
+            </thead>
+            <tbody id="deliveredShipmentsTableBody">
+              
+            </tbody>
+          </table>
+    </div>
+    
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -32,15 +32,16 @@ public class ShipmentDAO implements ShipmentDAOImpl {
             float volume = rs.getFloat("volume");
             int orderId = rs.getInt("order_id");
             int deliveryStatus = rs.getInt("delivery_status");
+            int shipmentCategory = rs.getInt("category_id");
 
-            return new Shipment(shipmentId, shipmentType, weight, volume, orderId, deliveryStatus);
+            return new Shipment(shipmentId, shipmentType, weight, volume, orderId, deliveryStatus, shipmentCategory);
         });
     }
 
     @Override
     public void addShipment(Shipment shipment) {
-        String sql = "insert into public.shipments (shipment_type, weight, volume, order_id, delivery_status)" +
-                " values(:shipmentType, :weight, :volume, :orderId, :deliveryStatus)";
+        String sql = "insert into public.shipments (shipment_type, weight, volume, order_id, delivery_status, category_id)" +
+                " values(:shipmentType, :weight, :volume, :orderId, :deliveryStatus, :categoryId)";
         Map<String, Object> params = new HashMap<>();
 
         params.put("shipmentType", shipment.getShipmentType());
@@ -48,14 +49,15 @@ public class ShipmentDAO implements ShipmentDAOImpl {
         params.put("volume", shipment.getVolume());
         params.put("orderId", shipment.getOrderId());
         params.put("deliveryStatus", shipment.getDeliveryStatus());
+        params.put("categoryId", shipment.getShipmentCategory());
 
         namedParameterJdbcTemplate.update(sql, params);
     }
 
     @Override
     public List<Shipment> findByCategory(int categoryId) {
-        String query = "select * from public.shipments sc where sc.shipment_id in " +
-                "(select shipment_id from public.shipments_category sc2 where sc2.category_id = :categoryId)";
+        String query = "select * from public.shipments " +
+                "where category_id = :categoryId";
 
         Map<String, Object> params = new HashMap<>();
         params.put("categoryId", categoryId);
@@ -67,8 +69,9 @@ public class ShipmentDAO implements ShipmentDAOImpl {
             float volume = rs.getFloat("volume");
             int orderId = rs.getInt("order_id");
             int deliveryStatus = rs.getInt("delivery_status");
+            int shipmentCategory = rs.getInt("category_id");
 
-            return new Shipment(shipmentId, type, weight, volume, orderId, deliveryStatus);
+            return new Shipment(shipmentId, type, weight, volume, orderId, deliveryStatus, shipmentCategory);
         });
     }
 
@@ -85,17 +88,30 @@ public class ShipmentDAO implements ShipmentDAOImpl {
             float volume = rs.getFloat("volume");
             int orderId = rs.getInt("order_id");
             int deliveryStatus = rs.getInt("delivery_status");
+            int shipmentCategory = rs.getInt("category_id");
 
-            return new Shipment(shipmentId, type, weight, volume, orderId, deliveryStatus);
+            return new Shipment(shipmentId, type, weight, volume, orderId, deliveryStatus, shipmentCategory);
         });
     }
 
     @Override
     public List<Shipment> findByAllFilters(String shipmentType, int categoryId) {
-        List<Shipment> list1 = findByType(shipmentType);
-        List<Shipment> list2 = findByCategory(categoryId);
-        list1.addAll(list2);
+        String query = "select * from public.shipments " +
+                "where category_id = :categoryId and shipment_type = :shipmentType";
+        Map<String, Object> params = new HashMap<>();
+        params.put("shipmentType", shipmentType);
+        params.put("categoryId", categoryId);
 
-        return list1;
+        return namedParameterJdbcTemplate.query(query, params, (rs, rowNum) -> {
+            int shipmentId = rs.getInt("shipment_id");
+            String type = rs.getString("shipment_type");
+            float weight = rs.getFloat("weight");
+            float volume = rs.getFloat("volume");
+            int orderId = rs.getInt("order_id");
+            int deliveryStatus = rs.getInt("delivery_status");
+            int shipmentCategory = rs.getInt("category_id");
+
+            return new Shipment(shipmentId, type, weight, volume, orderId, deliveryStatus, shipmentCategory);
+        });
     }
 }

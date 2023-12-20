@@ -12,18 +12,29 @@ public class Shipment {
     private float volume;
     private int orderId;
     private int deliveryStatus;
+    private int shipmentCategory;
 
-    public Shipment(int shipmentId, String shipmentType, float weight, float volume, int orderId, int deliveryStatus) {
+    public Shipment(int shipmentId, String shipmentType, float weight, float volume, int orderId, int deliveryStatus, int shipmentCategory) {
         this.shipmentId = shipmentId;
         this.shipmentType = shipmentType;
         this.weight = weight;
         this.volume = volume;
         this.orderId = orderId;
         this.deliveryStatus = deliveryStatus;
+        this.shipmentCategory = shipmentCategory;
     }
+
 
     public int getShipmentId() {
         return shipmentId;
+    }
+
+    public int getShipmentCategory() {
+        return shipmentCategory;
+    }
+
+    public void setShipmentCategory(int shipmentCategory) {
+        this.shipmentCategory = shipmentCategory;
     }
 
     public void setShipmentId(int shipmentId) {

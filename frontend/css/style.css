@@ -1,0 +1,215 @@
+/* Основной стиль таблицы */
+
+table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Стиль заголовков таблицы */
+  th {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Стиль ячеек таблицы */
+  td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Стиль чётных строк таблицы */
+  tr:nth-child(even) th{
+    background-color: #f9f9f9;
+  }
+  
+  /* При наведении курсора на строку */
+  tbody:hover tr:hover th{
+    background-color: hsl(0, 2%, 76%);
+    cursor:cell;
+  }
+  thead:hover th {
+    background-color: #333;
+
+  }
+
+  /* Стили для навигационных ссылок */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 30px;
+  justify-content: center;
+  /* display: flex;
+  flex-direction: column;
+  min-height: 100vh; */
+
+}
+
+
+a {
+  display: flex;
+  height: 50px;
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color:#333;
+  padding: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 200px;
+  font-size: 30px;
+  background-color: #333;
+
+}
+
+.container {
+  max-width: 1600px;
+}
+/* .containerMain {
+  margin-top: auto;
+  background-color:hsl(0, 2%, 76%);
+} */
+
+.orderTitle, .shipmentTitle {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.menu_cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  padding: 20px;
+
+}
+/* Стили для заголовка "Заказы" */
+.title {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.filterContainer {
+  margin: 0 auto;
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+}
+
+.filterItem:first-child {
+  margin-right: 30px;
+}
+
+/* Стили для контейнера таблицы и формы */
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.orderTitile {
+  text-align: center;
+}
+
+.cargoForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Стили для формы */
+.orderForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input[type="date"],
+input,
+select {
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.thead {
+  background-color: #333;
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.footer {
+  background-color: #333;
+  height: 200px;
+  margin-top: auto;
+}
+
+.btn {
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(26, 25, 25);
+}
+
+.filters {
+  text-align: center;
+}
+
+.filterBtn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.vehicleItem {
+  text-align: center;
+}
+
+.vehicleFilterBtn {
+  margin: 20px 0px;
+}

@@ -69,4 +69,21 @@ public class OrderDAO implements OrderDAOImpl {
     public Optional<Order> findById(int id) {
         return Optional.empty();
     }
+
+    @Override
+    public List<Order> findByVehicle(String vehicleType) {
+        String query = "select * from public.orders where vehicle = '" + vehicleType + "'";
+
+
+        return namedParameterJdbcTemplate.query(query, (rs, rowNum) -> {
+            int orderId = rs.getInt("order_id");
+            String orderDate = new SimpleDateFormat("yyyy-MM-dd").format(rs.getDate("order_date"));
+            int status = rs.getInt("status");
+            String deliveryDate = new SimpleDateFormat("yyyy-MM-dd").format(rs.getDate("delivery_date"));
+            String vehicle = rs.getString("vehicle");
+
+
+            return new Order(orderId, orderDate, status, deliveryDate, vehicle);
+        });
+    }
 }

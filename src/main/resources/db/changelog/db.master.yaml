@@ -16,7 +16,6 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: orders_pkey
                   name: order_id
-                  startWith: 2
                   type: INTEGER
               - column:
                   name: order_date
@@ -50,12 +49,15 @@ databaseChangeLog:
                   type: VARCHAR(50)
               - column:
                   name: weight
-                  type: FLOAT8
+                  type: FLOAT
               - column:
                   name: volume
-                  type: FLOAT8
+                  type: FLOAT
               - column:
                   name: order_id
+                  type: INTEGER
+              - column:
+                  name: category_id
                   type: INTEGER
               - column:
                   name: delivery_status
@@ -68,7 +70,7 @@ databaseChangeLog:
         - createTable:
             columns:
               - column:
-                  autoIncrement: true
+                  autoIncrement: false
                   constraints:
                     nullable: false
                     primaryKey: true
@@ -76,7 +78,7 @@ databaseChangeLog:
                   name: category_id
                   type: INTEGER
               - column:
-                  name: categoty_name
+                  name: category_name
                   type: VARCHAR(30)
             tableName: product_category
   - changeSet:
@@ -128,27 +130,6 @@ databaseChangeLog:
                   type: INTEGER
             tableName: delivered_shipments
   - changeSet:
-      id: 1702841658464-6
-      author: egoravdeev (generated)
-      changes:
-        - createTable:
-            columns:
-              - column:
-                  constraints:
-                    nullable: false
-                    primaryKey: true
-                    primaryKeyName: shipments_category_pkey
-                  name: shipment_id
-                  type: INTEGER
-              - column:
-                  constraints:
-                    nullable: false
-                    primaryKey: true
-                    primaryKeyName: shipments_category_pkey
-                  name: category_id
-                  type: INTEGER
-            tableName: shipments_category
-  - changeSet:
       id: 1702841658464-7
       author: egoravdeev (generated)
       changes:
@@ -179,36 +160,6 @@ databaseChangeLog:
             referencedTableName: orders
             validate: true
   - changeSet:
-      id: 1702841658464-9
-      author: egoravdeev (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: category_id
-            baseTableName: shipments_category
-            constraintName: shipments_category_category_id_fkey
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: category_id
-            referencedTableName: product_category
-            validate: true
-  - changeSet:
-      id: 1702841658464-10
-      author: egoravdeev (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: shipment_id
-            baseTableName: shipments_category
-            constraintName: shipments_category_shipment_id_fkey
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: shipment_id
-            referencedTableName: shipments
-            validate: true
-  - changeSet:
       id: 1702841658464-11
       author: egoravdeev (generated)
       changes:
@@ -223,4 +174,24 @@ databaseChangeLog:
             referencedColumnNames: order_id
             referencedTableName: orders
             validate: true
-
+#  - changeSet:
+#      id: 1702841658464-12
+#      author: egoravdeev (generated)
+#      changes:
+#        - sql:
+#            sql: INSERT INTO public.product_category  (category_id, category_name) SELECT 1, 'Электронника' WHERE NOT EXISTS (SELECT 1 FROM public.product_category WHERE category_id = 1)
+#        - sql:
+#            sql: INSERT INTO public.product_category  (category_id, category_name) SELECT 2, 'Бытовая техника' WHERE NOT EXISTS (SELECT 2 FROM public.product_category WHERE category_id = 2)
+#        - sql:
+#            sql: INSERT INTO public.product_category  (category_id, category_name) SELECT 3, 'Химикаты' WHERE NOT EXISTS (SELECT 3 FROM public.product_category WHERE category_id = 3)
+#        - sql:
+#            sql: INSERT INTO public.product_category  (category_id, category_name) SELECT 4, 'Товары для дома' WHERE NOT EXISTS (SELECT 4 FROM public.product_category WHERE category_id = 4)
+#        - sql:
+#            sql: INSERT INTO public.product_category  (category_id, category_name) SELECT 5, 'Продукты' WHERE NOT EXISTS (SELECT 5 FROM public.product_category WHERE category_id = 5)
+#        - sql:
+#            sql: INSERT INTO public.product_category  (category_id, category_name) SELECT 6, 'Сад и дом' WHERE NOT EXISTS (SELECT 6 FROM public.product_category WHERE category_id = 6)
+#        - sql:
+#            sql: INSERT INTO public.product_category  (category_id, category_name) SELECT 7, 'Одежда' WHERE NOT EXISTS (SELECT 7 FROM public.product_category WHERE category_id = 7)
+#        - sql:
+#            sql: INSERT INTO public.product_category  (category_id, category_name) SELECT 8, 'Обувь' WHERE NOT EXISTS (SELECT 8 FROM public.product_category WHERE category_id = 8)
+#

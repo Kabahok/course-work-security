@@ -13,4 +13,5 @@ public interface OrderDAOImpl {
     void addOrder(Order order) throws ParseException;
     List<Order> findAll();
     Optional<Order> findById(int id);
+    List<Order> findByVehicle(String vehicleType);
 }
